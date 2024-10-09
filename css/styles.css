@@ -1,0 +1,95 @@
+.scene {
+  width: 860px;
+  height: 260px;
+  perspective: 600px;
+
+  position: relative;
+  margin: auto;
+  outline: 1px solid black;
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 200px;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+
+  /* transform-origin: center left; */
+
+  text-align: center;
+  font-size: 36px;
+  color: white;
+}
+
+.card-face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card-face-front {
+  background-color: red;
+}
+
+.card-face-back {
+  background-color: blue;
+  transform: translateX(0) rotateY(180deg);
+}
+
+.two .card-face-back,
+.three .card-face-back {
+  background-color: aqua;
+}
+
+/* .scene:hover .card {
+  transform: translateX(-100%) rotateY(-180deg);
+} */
+
+.scene:hover .one {
+  /* transform-origin: center right; */
+  transform: translateX(-130%) rotateY(-180deg);
+}
+
+.scene:hover .two,
+.scene:hover .five {
+  /* transform-origin: center center; */
+  transform: translateX(-130%) rotateY(-120deg);
+  z-index: 3;
+}
+
+.scene:hover .three,
+.scene:hover .six {
+  /* transform-origin: center center; */
+  transform: translateX(130%) rotateY(120deg);
+  z-index: 3;
+}
+
+.scene:hover .four {
+  /* transform-origin: center left; */
+  transform: translateX(130%) rotateY(180deg);
+}
+
+.five .card-face-front,
+.six .card-face-front {
+  background-color: brown;
+}
+
+.card.five {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-105%);
+  z-index: -1;
+}
+
+.card.six {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translate(105%);
+  z-index: -1;
+}
